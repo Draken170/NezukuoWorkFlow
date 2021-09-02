@@ -23,13 +23,13 @@ jobs:
          with:
            python-version: 3.9
            
-       - name: cloning repo and install
+       - name: Building
          continue-on-error: true
          run: |
            sudo apt -qq update && sudo apt -qq install -y --no-install-recommends ffmpeg neofetch
            git clone ${{ secrets.REPO_URL }} ohto && cd ohto && pip3 install -r requirements.txt
            pwd
-       - name: Running
+       - name: Ohto Running
          timeout-minutes: 350
          continue-on-error: true
          run: |
