@@ -46,12 +46,12 @@ jobs:
            wget -O .env ${{ secrets.ENV }}
            echo environment loaded!
            python3 main.py
-       - name: Loop workflow
-         continue-on-error: true
-         run: |
-           git clone https://github.com/${GITHUB_REPOSITORY} loop
-           cd loop || exit 1
-           echo $(date -u +%T%P) >> loop.txt
-           git add loop.txt
-           git commit -m "Workflow : Loop $(date -u +%D-%T%P)"
-           git push -q https://${{ secrets.TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
+#       - name: Loop workflow
+#         continue-on-error: true
+#         run: |
+#           git clone https://github.com/${GITHUB_REPOSITORY} loop
+#           cd loop || exit 1
+#           echo $(date -u +%T%P) >> loop.txt
+#           git add loop.txt
+#           git commit -m "Workflow : Loop $(date -u +%D-%T%P)"
+#           git push -q https://${{ secrets.TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
